@@ -21,6 +21,7 @@ public class TC_004BirthEvent {
 		BirthEvent birth=new BirthEvent(driver);
 		birth.buttonclick();
 		birth.selectBirth();
+		birth.continueBirthProcess();
 
 	}
 }

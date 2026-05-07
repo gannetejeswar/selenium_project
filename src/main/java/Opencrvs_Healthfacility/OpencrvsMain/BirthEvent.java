@@ -22,6 +22,11 @@ public class BirthEvent {
    WebElement birthRadioBtn;
    @FindBy(id="continue")
    WebElement continueBtn;
+   @FindBy(id = "content-name")
+   WebElement introPage;
+   @FindBy(xpath = "//button[text()='Continue']")
+   WebElement introContinueBtn;
+
    public void buttonclick() {
 	   wait.until(ExpectedConditions.visibilityOf(plus));
        wait.until(ExpectedConditions.elementToBeClickable(plus));
@@ -33,5 +38,16 @@ public class BirthEvent {
 	    wait.until(ExpectedConditions.elementToBeClickable(continueBtn));
 	    continueBtn.click();
 	}
+   public void continueBirthProcess() {
+
+       // Wait until intro page appears
+       wait.until(ExpectedConditions.textToBePresentInElement(
+               introPage,
+               "Introduce the birth registration process to the notifier"));
+
+       // Click continue
+       wait.until(ExpectedConditions.elementToBeClickable(introContinueBtn));
+       introContinueBtn.click();
+   }
    
 }
